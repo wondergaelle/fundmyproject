@@ -1,3 +1,6 @@
+.idea/
+public/uploads
+*.bak
 
 ###> symfony/framework-bundle ###
 /.env.local
