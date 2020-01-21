@@ -53,4 +53,16 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
         $manager->flush();
     }
+
+
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
+     *
+     * @return class-string[]
+     */
+    public function getDependencies()
+    {
+        return [SkillFixtures::class];
+    }
 }
