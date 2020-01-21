@@ -18,13 +18,16 @@ class UserFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager )
     {
        $admin = new User();
+       $admin->setFirstname("Floch");
+       $admin->setLastname("Gaëlle");
        $admin->setEmail("gaelle.floch@gmail.com");
        $admin->setPassword($this->encoder->encodePassword($admin,"gfloch"));
        $admin->setRoles(["ROLE_ADMIN"]);
        $manager->persist($admin);
+
 
         $manager->flush();
     }

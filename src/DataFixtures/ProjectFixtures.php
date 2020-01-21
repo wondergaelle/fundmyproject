@@ -9,6 +9,10 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class ProjectFixtures extends Fixture implements DependentFixtureInterface
 {
+    /**
+     * @param ObjectManager $manager
+     * @throws \Exception
+     */
     public function load(ObjectManager $manager)
     {
         $goodgirl = new Project();
@@ -16,9 +20,11 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $goodgirl->setExcerpt("Ce film parle de ...");
         $goodgirl->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
         $goodgirl->setCreatedAt(new \ DateTime("2019-08-04 09:00:00"));
-        $goodgirl->setGoal("5500€");
-        $goodgirl->setUser("Paula Georges");
+        $goodgirl->setGoal(5500.00);
         $goodgirl->setImage("project1.jpg");
+        $goodgirl->getUser("Gaelle floch", )
+      /*  $goodgirl->addCategory($this->getReference("category-film"));
+        $goodgirl->addContribution($this->getReference("amount"));*/
         $manager->persist($goodgirl);
 
         $lesyeux = new Project();
@@ -26,9 +32,12 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $lesyeux->setExcerpt("Revivez la grande épopée de l'équipe de France de football lors du mondial de football 2010.");
         $lesyeux->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
         $lesyeux->setCreatedAt(new \DateTime("2018-11-04 15:00:00"));
-        $lesyeux->setGoal("12000€");
-        $lesyeux->setUser("Alban Bin");
+        $lesyeux->setGoal(5500.00);
         $lesyeux->setImage("placeholder.png");
+        $lesyeux->setUser("Gaelle Floch");
+        /*$lesyeux->addCategory($this->getReference("category-film"));
+        $lesyeux->addCategory($this->getReference("category-sport"));
+        $lesyeux->addContribution($this->getReference("amount"));*/
         $manager->persist($lesyeux);
 
         $dabado = new Project();
@@ -36,19 +45,24 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $dabado->setExcerpt("Un jeu fantastique peint à la main. Plongez dans des aventures extra-ordinaires !");
         $dabado->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
         $dabado->setCreatedAt(new \ DateTime("2019-07-06 12:00:00"));
-        $dabado->setGoal("8000€");
-        $dabado->setUser("Norah Jones");
+        $dabado->setGoal(5500.00);
         $dabado->setImage("project3.jpg");
+        $dabado->setUser("Gaelle Floch");
+       /* $dabado->addCategory($this->getReference("category-film"));
+        $dabado->addCategory($this->getReference("category-jeux"));
+        $dabado->addContribution($this->getReference("amount"));*/
         $manager->persist($dabado);
 
-        $doosh =new Project();
+        $doosh = new Project();
         $doosh->setName("Doosh");
         $doosh->setExcerpt("Venez m'accompagner dans mon projet de création musicale avec clip vidéo !");
         $doosh->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
         $doosh->setCreatedAt(new \ DateTime("2019-06-06 10:00:00"));
-        $doosh->setGoal("4500€");
-        $doosh->setUser("Pasquito Pepe");
+        $doosh->setGoal(5500.00);
         $doosh->setImage("project4.jpg");
+        $doosh->setUser("Gaelle Floch");
+        /*$doosh->addCategory($this->getReference("category-film"));
+        $doosh->addContribution($this->getReference("amount"));*/
         $manager->persist($doosh);
 
         $manager->flush();
@@ -63,6 +77,8 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
      */
     public function getDependencies()
     {
-        return [SkillFixtures::class];
+        return[
+            UserFixtures::class
+        ];
     }
 }
