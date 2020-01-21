@@ -45,16 +45,18 @@
 </header>
 
 <main>
-    {% block body %}{% endblock %}
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-</main>
 
+</main>
 
 <footer class="page-footer">
     <div class="container">
         <i class="fa fa-copyright"></i> Fund My Project 2020
     </div>
 </footer>
+
+{% block body %}{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>
