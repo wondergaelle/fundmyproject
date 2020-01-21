@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
+    private $encoder;
 
     /**
      * UserFixtures constructor.
@@ -18,16 +19,16 @@ class UserFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
-    public function load(ObjectManager $manager )
+    public function load(ObjectManager $manager)
     {
-       $admin = new User();
-       $admin->setFirstname("Floch");
-       $admin->setLastname("Gaëlle");
-       $admin->setEmail("gaelle.floch@gmail.com");
-       $admin->setPassword($this->encoder->encodePassword($admin,"gfloch"));
-       $admin->setRoles(["ROLE_ADMIN"]);
-       $manager->persist($admin);
-
+        $admin = new User();
+        $admin->setLastname("Floch");
+        $admin->setFirstname("Gaëlle");
+        $admin->setEmail("gaelle.floch@gmail.com");
+        $admin->setPassword($this->encoder->encodePassword($admin, "gfloch"));
+        $admin->setRoles(["ROLE_ADMIN"]);
+        $this->setReference("Gaelle",$admin);//implements userId
+        $manager->persist($admin);
 
         $manager->flush();
     }

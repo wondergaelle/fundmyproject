@@ -17,53 +17,53 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
     {
         $goodgirl = new Project();
         $goodgirl->setName("Good Girl");
+        $goodgirl->setImage("project1.jpg");
         $goodgirl->setExcerpt("Ce film parle de ...");
         $goodgirl->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
-        $goodgirl->setCreatedAt(new \ DateTime("2019-08-04 09:00:00"));
         $goodgirl->setGoal(5500.00);
-        $goodgirl->setImage("project1.jpg");
-        $goodgirl->getUser("Gaelle floch", )
-      /*  $goodgirl->addCategory($this->getReference("category-film"));
-        $goodgirl->addContribution($this->getReference("amount"));*/
+        $goodgirl->prePersist();
+        $goodgirl->addCategory($this->getReference("category-film"));
+        $goodgirl->setUser($this->getReference("Gaelle"));
         $manager->persist($goodgirl);
+        $this->addReference("Good Girl", $goodgirl);
 
         $lesyeux = new Project();
         $lesyeux->setName("Les yeux dans le bus");
         $lesyeux->setExcerpt("Revivez la grande épopée de l'équipe de France de football lors du mondial de football 2010.");
         $lesyeux->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
-        $lesyeux->setCreatedAt(new \DateTime("2018-11-04 15:00:00"));
         $lesyeux->setGoal(5500.00);
         $lesyeux->setImage("placeholder.png");
-        $lesyeux->setUser("Gaelle Floch");
-        /*$lesyeux->addCategory($this->getReference("category-film"));
+        $lesyeux->prePersist();
+        $lesyeux->addCategory($this->getReference("category-film"));
         $lesyeux->addCategory($this->getReference("category-sport"));
-        $lesyeux->addContribution($this->getReference("amount"));*/
+        $lesyeux->setUser($this->getReference("Gaelle"));
         $manager->persist($lesyeux);
+        $this->addReference("Les yeux dans le bus", $lesyeux);
 
         $dabado = new Project();
         $dabado->setName("Dabado");
         $dabado->setExcerpt("Un jeu fantastique peint à la main. Plongez dans des aventures extra-ordinaires !");
         $dabado->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
-        $dabado->setCreatedAt(new \ DateTime("2019-07-06 12:00:00"));
         $dabado->setGoal(5500.00);
         $dabado->setImage("project3.jpg");
-        $dabado->setUser("Gaelle Floch");
-       /* $dabado->addCategory($this->getReference("category-film"));
+        $dabado->prePersist();
+        $dabado->addCategory($this->getReference("category-film"));
         $dabado->addCategory($this->getReference("category-jeux"));
-        $dabado->addContribution($this->getReference("amount"));*/
+        $dabado->setUser($this->getReference("Gaelle"));
         $manager->persist($dabado);
+        $this->addReference("Dabado", $dabado);
 
         $doosh = new Project();
         $doosh->setName("Doosh");
         $doosh->setExcerpt("Venez m'accompagner dans mon projet de création musicale avec clip vidéo !");
         $doosh->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
-        $doosh->setCreatedAt(new \ DateTime("2019-06-06 10:00:00"));
         $doosh->setGoal(5500.00);
         $doosh->setImage("project4.jpg");
-        $doosh->setUser("Gaelle Floch");
-        /*$doosh->addCategory($this->getReference("category-film"));
-        $doosh->addContribution($this->getReference("amount"));*/
+        $doosh->prePersist();
+        $doosh->addCategory($this->getReference("category-film"));
+        $doosh->setUser($this->getReference("Gaelle"));
         $manager->persist($doosh);
+        $this->addReference("Doosh", $doosh);
 
         $manager->flush();
     }
@@ -77,8 +77,9 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
      */
     public function getDependencies()
     {
-        return[
-            UserFixtures::class
-        ];
+       return[
+           UserFixtures::class,
+           CategoryFixtures::class,
+       ];
     }
 }
