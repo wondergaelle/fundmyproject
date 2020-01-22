@@ -1,4 +1,4 @@
-<div class="dropdown-menu" aria-labelledby="download">
+<div class="categories">
     {% for category in categories %}
         <a class="dropdown-item" href="{{ path('category_show', {'id': category.id}) }}">{{ category.name }}</a>
     {% endfor %}

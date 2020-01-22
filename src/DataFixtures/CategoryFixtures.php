@@ -17,9 +17,9 @@ class CategoryFixtures extends Fixture
         $this->addReference("category-film", $film);
 
         $sport = new Category();
-        $sport->setName("Sports");
-        $manager->persist($film);
-        $this->addReference("category-sport", $film);
+        $sport->setName("Sport");
+        $manager->persist($sport);
+        $this->addReference("category-sport", $sport);
 
         $musique = new Category();
         $musique->setName("Musique");
@@ -30,6 +30,8 @@ class CategoryFixtures extends Fixture
         $jeux->setName("Jeux");
         $manager->persist($jeux);
         $this->addReference("category-jeux", $jeux);
+
+
 
         $manager->flush();
     }
