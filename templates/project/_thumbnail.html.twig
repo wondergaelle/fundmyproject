@@ -1,16 +1,25 @@
 <article class="project-thumbnail">
-    <img src={{ asset('uploads/' ~ project.image  ) }}>
-    <h1>{{ project.name }}</h1>
-    <p class="projets-category">
-        {% for projects in project %}
-        <span>{{ project.name }}</span>
-        {% endfor %}
-    <ul class="badges">
-        <li><a href="{{ path('category_index') }}" class="badge badge-pill badge-primary">Film</a></li>
-    </ul>
-    </p>
-<div></div>
+    <div class="container">
+        <h1>{{ project.name }}</h1>
+        <p class="projets-category">
+        <div class="col-4">
+            <img src={{ asset('uploads/' ~ project.image  ) }}>
 
+        </div>
+
+            <a href="{{ path('project_show', {'id' : project_show.id}) }}" class="badge badge-pill badge-primary">
+             </a>
+
+        <form>
+            <div class="form-group">
+                <input type="number" value="10" placeholder="Montant">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-money"></i>
+                    Je donne !
+                </button>
+            </div>
+    </div>
+    </form>
 
 
 </article>
