@@ -11,26 +11,21 @@
 
                 {% for project in projects %}
                     <article class="col-4">
-
                         <div class="card">
                             <img src="{{ asset('uploads/' ~ project.image) }}" class="card-img-top"
                                  alt="{{ project.name }}">
                             <div class="card-body">
-                                <h5 class="{{ project.name }}">Good Girl</h5>
+                                <h5 class="{{ project.name }}">"{{ project.name }}"</h5>
                                 <ul class="badges">
-
                                     {% for category in project.categories %}
-                                        Plus d'informations
                                         <span>{{ category.name }}</span>
-                                        </a>
                                     {% endfor %}
-                                   {# {% for category in project.categories %}
-                                        <li><a href="{{ path('/category_show') }}"
-                                               class="badge badge-pill badge-primary">Film</a></li>
-                                    {% endfor %}#}
                                 </ul>
-                                <p class="card-text">Ce film parle de ...</p>
-                                <a href=""{{ path('category_index') }}" class="badge badge-pill badge-primary">
+                                <p class="card-text">
+                                    {% for category in project.categories %}
+                                        <span>{{ project.excerpt }}</span>
+                                    {% endfor %}</p>
+                                <a href=""{{ path('project_index') }}" class="badge badge-pill badge-primary">
                                 <i class="fa fa-eye"></i>
                                 Voir plus
                                 </a>

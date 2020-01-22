@@ -19,12 +19,15 @@ class DefaultController extends AbstractController
         $categories =$this->getDoctrine()->getRepository(Category::class)->findAll();
 
 
-
-
         //envoyer les données dans la vue
         return $this->render('default/index.html.twig', [
             'projects'=>$projects,
             'categories'=>$categories,
         ]);
+    }
+
+    public function headerCategories(){
+        $categories=$this->getDoctrine()->getRepository(Category::class)->findAll();
+        return $this->render('default/index',['categorie'=>$categories]);
     }
 }
