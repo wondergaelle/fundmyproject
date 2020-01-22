@@ -31,7 +31,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $lesyeux->setName("Les yeux dans le bus");
         $lesyeux->setExcerpt("Revivez la grande épopée de l'équipe de France de football lors du mondial de football 2010.");
         $lesyeux->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
-        $lesyeux->setGoal(5500.00);
+        $lesyeux->setGoal(12000.00);
         $lesyeux->setImage("placeholder.png");
         $lesyeux->prePersist();
         $lesyeux->addCategory($this->getReference("category-film"));
@@ -44,7 +44,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $dabado->setName("Dabado");
         $dabado->setExcerpt("Un jeu fantastique peint à la main. Plongez dans des aventures extra-ordinaires !");
         $dabado->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
-        $dabado->setGoal(5500.00);
+        $dabado->setGoal(7500.00);
         $dabado->setImage("project3.jpg");
         $dabado->prePersist();
         $dabado->addCategory($this->getReference("category-film"));
@@ -57,7 +57,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $doosh->setName("Doosh");
         $doosh->setExcerpt("Venez m'accompagner dans mon projet de création musicale avec clip vidéo !");
         $doosh->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet at aut blanditiis corporis culpa deleniti dignissimos eos ex facilis inventore iusto laudantium odit, quibusdam rerum, sapiente sequi temporibus.");
-        $doosh->setGoal(5500.00);
+        $doosh->setGoal(8000.00);
         $doosh->setImage("project4.jpg");
         $doosh->prePersist();
         $doosh->addCategory($this->getReference("category-film"));
