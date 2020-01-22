@@ -28,6 +28,6 @@ class DefaultController extends AbstractController
 
     public function headerCategories(){
         $categories=$this->getDoctrine()->getRepository(Category::class)->findAll();
-        return $this->render('default/index',['categorie'=>$categories]);
+        return $this->render('default/_listcategory.html.twig',['categories'=>$categories]);
     }
 }

@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/project")
+
  */
 class ProjectController extends AbstractController
 {
