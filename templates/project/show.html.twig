@@ -7,13 +7,32 @@
     <div class="container">
         <h1>{{ project.name }}</h1>
         <img src="{{ asset('uploads/' ~ project.image) }}" alt="{{ project.name }}">
-
         <ul>
             {% for category in project.categories %}
                 <li>{{ category.name }}</li>
             {% endfor %}
         </ul>
         <p>{{ project.description }}</p>
+        <p>Objectif : {{ project.goal }} Euros</p>
+        <p>Créateur : {{ project.user.firstname }} {{ project.user.lastname }}</p>
+
+        <ul>
+            {% for contribution in project.contributions %}
+                <li>{{ contribution.amount }} euros  par {{ contribution.user.firstname}} {{ contribution.user.lastname}}</li>
+            {% endfor %}
+        </ul>
+        <div class="progress">
+            <div class="progress-bar bg-info" style="width: 18%">1000€</div>
+        </div>
+        <form>
+            <div class="form-group">
+                <input type="number" value="10" placeholder="Montant">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-money"></i>
+                    Je donne !
+                </button>
+            </div>
+        </form>
 
     </div>
 

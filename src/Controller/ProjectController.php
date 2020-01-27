@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Contribution;
 use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;

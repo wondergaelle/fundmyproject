@@ -23,7 +23,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $goodgirl->setGoal(5500.00);
         $goodgirl->prePersist();
         $goodgirl->addCategory($this->getReference("category-film"));
-        $goodgirl->setUser($this->getReference("Gaelle"));
+        $goodgirl->setUser($this->getReference("Lola"));
         $manager->persist($goodgirl);
         $this->addReference("Good Girl", $goodgirl);
 
@@ -49,7 +49,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $dabado->prePersist();
         $dabado->addCategory($this->getReference("category-film"));
         $dabado->addCategory($this->getReference("category-jeux"));
-        $dabado->setUser($this->getReference("Gaelle"));
+        $dabado->setUser($this->getReference("Lola"));
         $manager->persist($dabado);
         $this->addReference("Dabado", $dabado);
 

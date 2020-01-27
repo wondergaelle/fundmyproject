@@ -12,7 +12,7 @@
                 {% for project in projects %}
                     <article class="col-4">
                         <div class="card">
-                            <img src="{{ asset('uploads/' ~ project.image) }}" class="card-img-top"
+                            <img src="{{ asset(project.imageOrPlaceholder) }}" class="card-img-top"
                                  alt="{{ project.name }}">
                             <div class="card-body">
                                 <h5 class="{{ project.name }}">"{{ project.name }}"</h5>

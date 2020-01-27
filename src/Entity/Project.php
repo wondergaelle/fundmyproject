@@ -93,6 +93,9 @@ class Project
         return $this->image;
     }
 
+    public function getImageOrplaceHolder(): string {
+        return empty($this->getImage())?"images/placeholder.png":"uploads/". $this->getImage();
+    }
     public function setImage(?string $image): self
     {
         $this->image = $image;
