@@ -35,7 +35,7 @@ class UserFixtures extends Fixture
         $lola->setLastname("Tissier");
         $lola->setFirstname("Lola");
         $lola->setEmail("lola.tissier@gmail.com");
-        $lola->setPassword($this->encoder->encodePassword( $lola, "lolat"));
+        $lola->setPassword($this->encoder->encodePassword( $lola, "lola"));
         $lola->setRoles(["ROLE_USER"]);
         $this->setReference("Lola", $lola);//implements userId
         $manager->persist( $lola);

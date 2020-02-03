@@ -20,6 +20,8 @@ class ContributionFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference("amount", $contribution);
         $manager->persist($contribution);
 
+
+
         $manager->flush();
     }
 

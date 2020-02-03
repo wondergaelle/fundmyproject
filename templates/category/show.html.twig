@@ -3,22 +3,25 @@
 {% block title %}{{ category.name }}{% endblock %}
 
 {% block body %}
-
-    <div class="container">
-        <h1>Catégorie : {{ category.name }}</h1>
-        <p>Il y a
-            {% if category.projects.count < 2 %}
-                {{ category.projects.count }} projet
-            {% else %}
-            {{ category.projects.count }}  projets dans cette catégorie :</p>
+    <article class="project">
+        <div class="container">
+            <h1>Catégorie : {{ category.name }}</h1>
+            <p>Il y a
+                {% if category.projects.count < 2 %}
+                {{ category.projects.count }} projet dans cette catégorie
+                {% else %}
+                {{ category.projects.count }} projets dans cette catégorie :</p>
             {% endif %}
-        <div class="row">
-            {% for project in category.projects %}
-                <article class="col-4">
-                    {% include 'project/_thumbnail.html.twig' with {'project': project} only %}
-                </article>
-            {% endfor %}
+            <div class="row">
+                {% for project in category.projects %}
+                    <article class="col-4">
+
+                        {% include 'project/_thumbnail.html.twig' with {'project': project} only %}
+
+                    </article>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    </article>
 
 {% endblock %}

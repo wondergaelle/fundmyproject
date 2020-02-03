@@ -227,4 +227,10 @@ class Project
         $this->setCreatedAt(new \DateTime()); //DateTime() : date, heure, minutes de maintenant
     }
 
+    public function __toString()
+    {
+       return $this->getName();
+    }
+
+
 }
