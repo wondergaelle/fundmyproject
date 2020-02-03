@@ -14,27 +14,20 @@ class ContributionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $contribution = new Contribution();
-        $contribution->setAmount(1000.00);
-        $contribution->setUser($this->getReference("Gaelle"));
-        $contribution->setProject($this->getReference("Good Girl"));
-        $this->addReference("amount", $contribution);
+        $contribution->setAmount(20);
+        $contribution->setUser($this->getReference("user-user"));
+        $contribution->setProject($this->getReference("project-1"));
         $manager->persist($contribution);
-
-
 
         $manager->flush();
     }
 
-
     /**
-     * This method must return an array of fixtures classes
-     * on which the implementing class depends on
-     *
-     * @return class-string[]
+     * @inheritDoc
      */
     public function getDependencies()
     {
-        return[
+        return [
             UserFixtures::class,
             ProjectFixtures::class
         ];

@@ -176,7 +176,6 @@ class Project
         if (!$this->categories->contains($category)) {
             $this->categories[] = $category;
         }
-
         return $this;
     }
 
@@ -185,7 +184,6 @@ class Project
         if ($this->categories->contains($category)) {
             $this->categories->removeElement($category);
         }
-
         return $this;
     }
 
@@ -196,6 +194,20 @@ class Project
     {
         return $this->contributions;
     }
+
+    public function getAmountContributions(): float
+    {
+        $totalAmount = array_reduce($this->getContributions()->toArray(), function ($total, $contribution) {
+            return $total + $contribution->getAmount();
+        });
+        return is_null($totalAmount) ? 0 : $totalAmount;
+    }
+
+    public function getAmountContributionsPercentage(): float
+    {
+        return ($this->getAmountContributions() * 100) / $this->getGoal();
+    }
+
 
     public function addContribution(Contribution $contribution): self
     {
@@ -216,7 +228,6 @@ class Project
                 $contribution->setProject(null);
             }
         }
-
         return $this;
     }
     //Pour enregistrer la date et l'heure quand les utilisateurs clique sur "Envoyer" dans le formulaire
