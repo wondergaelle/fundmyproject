@@ -17,8 +17,6 @@ class ProjectType extends AbstractType
             ->add('excerpt')
             ->add('description')
             ->add('goal')
-            ->add('createdAt')
-            ->add('user')
             ->add('categories')
         ;
     }

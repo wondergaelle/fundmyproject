@@ -97,11 +97,11 @@ class Contribution
         return $this;
     }
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function prePersist()
-    {
-        $this->setCreatedAt(new \DateTime());
+        /**
+         * @ORM\PrePersist
+         */
+        public function prePersist()
+        {
+            $this->setCreatedAt(new \DateTime());
+        }
     }
-}
